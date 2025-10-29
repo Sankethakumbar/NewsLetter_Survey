@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Newsletter Survey</title>
+
+    <!-- INTERNAL CSS -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f5f5f5;
+            padding: 50px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 17px;
+            opacity: 0.8;
+            margin-bottom: 25px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            margin-top: 20px;
+        }
+
+        label {
+            font-weight: 600;
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        input,
+        select,
+        textarea {
+            padding: 14px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        button {
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            background: black;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Quick Survey ✨</h2>
+        <p>Help us personalize your newsletter experience.</p>
+
+        <form id="surveyForm">
+
+            <label>1. What topics are you most interested in?</label>
+            <input type="text" name="topics" required />
+
+            <label>2. How often would you like to receive updates?</label>
+            <select name="frequency" required>
+                <option value="daily">Daily</option>
+                <option value="weekly">Weekly</option>
+                <option value="monthly">Monthly</option>
+            </select>
+
+            <label>3. What type of content do you enjoy? (Articles, Tips, News, etc.)</label>
+            <input type="text" name="content_type" required />
+
+            <label>4. Do you prefer short or detailed content?</label>
+            <select name="length" required>
+                <option value="short">Short & crisp</option>
+                <option value="detailed">Detailed & in-depth</option>
+            </select>
+
+            <label>5. Any specific goals you want help with? (Optional)</label>
+            <textarea name="goals" rows="3"></textarea>
+
+            <button type="submit">Submit Survey</button>
+        </form>
+    </div>
+
+    <script type="module" src="script.js"></script>
+    <script>
+        document.getElementById("surveyForm").addEventListener("submit", function (e) {
+            e.preventDefault(); // stops page refresh
+            window.location.href = "thankyou.html"; // redirect to thank you page
+        });
+    </script>
+
+</body>
+
+</html>

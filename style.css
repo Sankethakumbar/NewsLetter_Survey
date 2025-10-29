@@ -1,0 +1,56 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to bottom right, #eef2ff, #f9f9ff);
+}
+
+.container {
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 350px;
+}
+
+.google-btn {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    background: white;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+input,
+.primary-btn {
+    width: 100%;
+    padding: 12px;
+    margin-top: 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 15px;
+}
+
+.primary-btn {
+    background: black;
+    color: white;
+    cursor: pointer;
+    margin-top: 18px;
+}
+
+.divider {
+    margin: 20px 0;
+    font-size: 14px;
+    color: gray;
+}
+
