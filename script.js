@@ -1,9 +1,10 @@
-// ✅ Firebase CDN imports (NO import keyword needed here)
+
+// Firebase imports
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
 import { getAuth, GoogleAuthProvider, signInWithPopup } 
   from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
 
-// ✅ Your Firebase config
+// Your Firebase config
 const firebaseConfig = {
   apiKey: "AIzaSyDeQBsWcAy1xGsePeHIwT3UioMr-N27ejk",
   authDomain: "newsletter-survey.firebaseapp.com",
@@ -14,23 +15,47 @@ const firebaseConfig = {
   measurementId: "G-P7E454LP4Q"
 };
 
-// ✅ Initialize Firebase
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 
-// ✅ Google Sign-in Button Listener
-document.getElementById("googleBtn").addEventListener("click", async () => {
-  try {
-    await signInWithPopup(auth, provider);
-    alert("✅ Signed in with Google!");
-    window.location.href = "survey.html";
-  } catch (error) {
-    alert("❌ Failed: " + error.message);
-  }
-});
+//  GOOGLE SIGN-IN
+const googleBtn = document.getElementById("googleBtn");
+if (googleBtn) {
+  googleBtn.addEventListener("click", async () => {
+    try {
+      await signInWithPopup(auth, provider);
+      alert("✅ Signed in with Google!");
+      window.location.href = "survey.html";
+    } catch (error) {
+      alert("❌ Failed: " + error.message);
+    }
+  });
+}
 
-document.getElementById("surveyForm").addEventListener("submit", function (e) {
-            e.preventDefault(); // stops page refresh
-            window.location.href = "thankyou.html"; // redirect to thank you page
-        });
+//  index.html
+const signupBtn = document.getElementById("signupBtn");
+if (signupBtn) {
+  signupBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    if (email && password) {
+      alert("✅ Account created successfully!");
+      window.location.href = "survey.html";
+    } else {
+      alert("⚠️ Please enter both email and password!");
+    }
+  });
+}
+
+//survey.html
+const surveyForm = document.getElementById("surveyForm");
+if (surveyForm) {
+  surveyForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    window.location.href = "thankyou.html"; // go to thank you page
+  });
+}
